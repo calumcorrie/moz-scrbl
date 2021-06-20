@@ -1,0 +1,131 @@
+/* Canvas */
+html{
+    min-height: 100%;
+    position: relative;
+}
+
+#scrbl-extension_root {
+    position: absolute;
+    top: 0;
+    bottom:0;
+    left: 0;
+    right:0;
+    /*overflow:hidden;*/
+    z-index:999;
+}
+
+#scrbl-extension_root.scrbl-extension_root-collapse {
+    position: initial;
+}
+
+canvas.scrbl-extension_surface, svg.scrbl-extension_surface {
+    background-color: #0000ff26;
+    opacity:1.0;
+    animation-duration: 0.25s;
+    animation-fill-mode: both;
+}
+
+#scrbl-extension_tray {
+    background-color: #f5f09d;
+    position: fixed;
+    left: 0;
+    width: 45px;
+    margin-bottom: 20px;
+    bottom: 10%;
+    border-radius: 0 7px 7px 0;
+    overflow: hidden;
+}
+
+#scrbl-extension_tray > div {
+    height: 45px;
+    /*! width: 100%; */
+    cursor: pointer;
+    position: relative;
+    animation-fill-mode: both;
+    overflow: hidden;
+}
+
+#scrbl-extension_tray > div:hover{
+    background-color: #f5f2c2;
+    /*! border-left: solid 5px #d200bb; */
+}
+
+#scrbl-extension_tray > div > img {
+    width: 50%;
+    height: 50%;
+    margin: 22.5% 25% 22.5% 20%;
+}
+
+#scrbl-extension_tray span.scrbl-extension_hotkey {
+    position: absolute;
+    bottom: 2px;
+    right: 4px;
+    font-size: 12px;
+}
+
+#scrbl-extension_tray span.scrbl-extension_indicator {
+    position: absolute;
+    background-color: #d200bb;
+    max-width: 5px;
+    width: 0;
+    top:0;
+    left:0;
+    height: 100%;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+
+#scrbl-extension_tray span.scrbl-extension_indicator-on {
+    width: 5px;
+
+}
+
+.scrbl-extension_anim-fade-in {
+    animation-name: scrbl-extension_vanish;
+    animation-direction: reverse;
+}
+
+.scrbl-extension_anim-fade-out {
+    animation-name: scrbl-extension_vanish;
+}
+
+.scrbl-extension_anim-slide-in {
+    animation-name: scrbl-extension_slide-in;
+}
+
+.scrbl-extension_anim-slide-out {
+    animation-name: scrbl-extension_slide-in;
+    animation-direction: reverse;
+}
+
+.scrbl-extension_anim-drop-in {
+    animation-name: scrbl-extension_drop-in;
+    animation-duration: 0.25s;
+}
+
+.scrbl-extension_anim-drop-out {
+    animation-name: scrbl-extension_drop-in;
+    animation-direction: reverse;
+    animation-duration: 0.25s;
+}
+
+.scrbl-extension_gone {
+    display: none;
+}
+
+/* Animations */
+
+@keyframes scrbl-extension_vanish {
+    from {}
+    to   {opacity: 0.0;}
+}
+
+@keyframes scrbl-extension_slide-in {
+    from {width: 0  ;}
+    to   {width: 5px;}
+}
+
+@keyframes scrbl-extension_drop-in{
+    from {height:  0  ;}
+    to   {height: 45px;}
+}

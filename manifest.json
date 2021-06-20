@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "name": "Scrbl",
+  "version": "0.1",
+
+  "description": "Prototype page doodler",
+
+  "icons": {
+    "48": "./icons/draw_black_24dp.svg",
+    "96": "./icons/draw_black_24dp.svg"
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["./js/scrbl-main.js"],
+      "css": ["./css/scrbl-main.css"]
+    }
+  ],
+  
+  "web_accessible_resources": [
+    "./icons/*.svg"
+  ]
+}
