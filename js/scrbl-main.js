@@ -42,6 +42,7 @@ console.log("BC6");
 
 // UI
 let root = document.createElement("div");
+let root_visible = true;
 
 // Surface
 let surface = document.createElementNS(SVG_NS, "svg");
@@ -71,6 +72,8 @@ console.log("B2");
 root.id = ROOT_ID;
 root.classList.add(ROOT_COLLAPSE);
 document.body.appendChild(root);
+
+browser.runtime.onMessage.addListener(inbox);
 
 // Surface
 surface.classList.add(SURFACE_CLASS);
@@ -366,11 +369,39 @@ function erase(event){
     surface.removeChild(event.target);
 }
 
+// Other subs
+
 function max(a,b){
     return a >= b ? a : b;
 }
 
+function inbox(message){
+    console.log("CS Rx: ",message);
+    switch(message.type){
+        case "Content.ToggleVis": {
+            setRootVis(!root_visible);
+        }
+        
+        case "Content.GetVis": {
+            send({type:"Popup.ReportVis", value:root_visible});
+            break;
+        }
+        
+        case "Content.SetVis": {
+            setRootVis(message.value);
+            break;
+        }
+    }
+}
 
+function setRootVis(visible){
+    root.style.display = visible ? "unset" : "none" ;
+    root_visible = visible;
+}
+
+function send(message){
+    browser.runtime.sendMessage(message);
+}
 
 console.log("END");
 

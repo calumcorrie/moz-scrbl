@@ -1,24 +1,33 @@
 {
   "manifest_version": 2,
   "name": "Scrbl",
-  "version": "0.1",
+  "version": "0.2",
 
   "description": "Prototype page doodler",
+  
+  "permissions": ["activeTab"],
 
   "icons": {
     "48": "./icons/draw_black_24dp.svg",
     "96": "./icons/draw_black_24dp.svg"
   },
   
-  "content_scripts": [
-    {
+  "content_scripts": [{
       "matches": ["<all_urls>"],
-      "js": ["./js/scrbl-main.js"],
       "css": ["./css/scrbl-main.css"]
-    }
-  ],
+  }],
   
-  "web_accessible_resources": [
-    "./icons/*.svg"
-  ]
+  "page_action": {
+      "browser_style": true,
+      "show_matches": ["<all_urls>"],
+      "default_icon": "./icons/draw_black_24dp.svg",
+      "default_title": "Activate",
+      "default_popup": "popup/popup.html"
+    },
+  
+  "web_accessible_resources": ["./icons/*.svg"],
+  
+  "background": {
+    "scripts": ["./js/background.js"]
+  }
 }

@@ -1,0 +1,12 @@
+body {
+    margin: 20px;
+}
+
+#existing_options {
+    margin-top: 10px;
+    display: none;
+}
+
+button {
+    width:100%;
+}

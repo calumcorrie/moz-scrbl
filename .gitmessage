@@ -1,0 +1,26 @@
+# |<----  Using a Maximum Of 50 Characters  ---->|
+# Title - summarial, "this commit will <title>"
+# e.g. "Add popup feature" or "Integrates network interfacing"
+
+
+# |<----      Limit each line to a Maximum Of 72 Characters      ---->|
+Motivation:
+# e.g. "Bug fix" or "Feature <x> introduction/development"
+
+Changes:
+# What (and why) changes in the codebase, docs, unit tests, etc?
+# e.g.
+# - Added infinite improbability drive
+# - Updated docs and tests
+# - Side effect xyz
+
+Issues:
+# Related or parent issues. Include here any related Merge Requests
+# e.g. "Relates to issue #42" or "Closes #42" or "CR fix for  MR !4"
+
+# Notes:
+# Additional notes, observations, etc.
+
+
+###  COMMIT END  ###
+# |<----                       Wrap width                        ---->|
